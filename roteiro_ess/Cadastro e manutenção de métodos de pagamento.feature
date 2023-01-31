@@ -22,3 +22,12 @@ Cenário: Falha no modificação de um método de pagamento
     Então ainda estou na página "métodos de pagamentos"
     E vejo uma mensagem informando que não foi possível modificar pois já existe o "método"
     E vejo o "métodos de pagamentos" sem qualquer mudança
+
+Cenário: Modificando método de pagamento
+    Dado eu estou na página "métodos de pagamentos"
+    E vejo que o "método" que desejo está desatualizado
+    Quando eu seleciono o "método" nos "métodos de pagamentos"
+    E modifico o "método"
+    Então ainda estou na página "métodos de pagamentos"
+    E vejo a mensagem, "método" modificado
+    E vejo o "método" em "métodos de pagamentos"
