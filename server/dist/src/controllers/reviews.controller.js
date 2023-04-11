@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReviewsController = void 0;
-class ReviewsController {
-    constructor() {
+var ReviewsController = /** @class */ (function () {
+    function ReviewsController() {
         this.comentario = 'alo';
         this.today = {
             day: 8,
@@ -36,20 +36,21 @@ class ReviewsController {
             }
         ];
     }
-    addReview(name, country, comment, date) {
-        const newReview = {
+    ReviewsController.prototype.addReview = function (name, country, comment, date) {
+        var newReview = {
             nome: name,
             country: country,
             comment: comment,
             date_of_comment: date
         };
         this.reviews.push(newReview);
-    }
-    getAtractionReview(idReview) {
+    };
+    ReviewsController.prototype.getAtractionReview = function (idReview) {
         return idReview;
-    }
-    getAllReviews() {
+    };
+    ReviewsController.prototype.getAllReviews = function () {
         return this.reviews;
-    }
-}
+    };
+    return ReviewsController;
+}());
 exports.ReviewsController = ReviewsController;

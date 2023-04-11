@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Atracao = void 0;
-class Atracao {
-    constructor(id, name, images, title, descriptions, location, day, hour, ticketPrice) {
+var Atracao = /** @class */ (function () {
+    function Atracao(id, name, images, title, descriptions, location, day, hour, ticketPrice) {
         this.id = id;
         this.name = name;
         this.images = images;
@@ -13,5 +13,6 @@ class Atracao {
         this.hour = hour;
         this.ticketPrice = ticketPrice;
     }
-}
+    return Atracao;
+}());
 exports.Atracao = Atracao;

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.atracoesController = void 0;
-class atracoesController {
-    constructor() {
+var atracoesController = /** @class */ (function () {
+    function atracoesController() {
         this.atracoes = [
             {
                 id: '11a24b90',
@@ -122,18 +122,19 @@ class atracoesController {
             },
         ];
     }
-    getAllAtracoes() {
+    atracoesController.prototype.getAllAtracoes = function () {
         return this.atracoes;
-    }
-    getAtracaoByID(atracaoId) {
-        let atracao = this.atracoes[5];
-        for (let x in this.atracoes) {
+    };
+    atracoesController.prototype.getAtracaoByID = function (atracaoId) {
+        var atracao = this.atracoes[5];
+        for (var x in this.atracoes) {
             if (this.atracoes[x].id == atracaoId) {
                 atracao = this.atracoes[x];
                 break;
             }
         }
         return atracao;
-    }
-}
+    };
+    return atracoesController;
+}());
 exports.atracoesController = atracoesController;

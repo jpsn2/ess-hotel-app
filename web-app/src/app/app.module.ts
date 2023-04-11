@@ -20,7 +20,6 @@ import { DescontosPageExtendedComponent } from './pages/descontos-page-extended/
 import { HotelCardComponent } from './components/hotel-card/hotel-card.component';
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { HttpClientModule } from '@angular/common/http'; 
-// adição do httpClientModule para fazer requisicao de info do back end
 import { PagamentosPageComponent } from './pages/pagamentos-page/pagamentos-page.component';
 
 
@@ -50,6 +49,7 @@ import { PagamentosPageComponent } from './pages/pagamentos-page/pagamentos-page
     BrowserAnimationsModule,
     MaterialModule,
     MdbCarouselModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import reviews from './src/routes/reviews.routes';
+import discount from './src/routes/discount.routes';
 import atracoesroute from './src/routes/atracoes.routes';
 //import fs from 'fs';
 
@@ -19,6 +20,7 @@ app.use(express.json());
 // example of componenet routers app.use('component', componentRouter);
 // link das rotas pro backend
 app.use('/reviews', reviews);
+app.use('/discounts', discount)
 app.use('/atracoes', atracoesroute);
 
 

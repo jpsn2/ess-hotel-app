@@ -1,18 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = require("express");
-const atracoes_controller_1 = require("../controllers/atracoes.controller");
-const atracoesroute = (0, express_1.Router)();
-const atractionsController = new atracoes_controller_1.atracoesController();
+var express_1 = require("express");
+var atracoes_controller_1 = require("../controllers/atracoes.controller");
+var atracoesroute = (0, express_1.Router)();
+var atractionsController = new atracoes_controller_1.atracoesController();
 atracoesroute.route('/')
-    .get((req, res) => {
-    let allAtractions = atractionsController.getAllAtracoes();
-    return res.send({ allAtractions });
+    .get(function (req, res) {
+    var allAtractions = atractionsController.getAllAtracoes();
+    return res.send({ allAtractions: allAtractions });
 });
 atracoesroute.route('/:id')
-    .get((req, res) => {
-    let id = req.params.id.toString();
-    let atracao = atractionsController.getAtracaoByID(id);
+    .get(function (req, res) {
+    var id = req.params.id.toString();
+    var atracao = atractionsController.getAtracaoByID(id);
     if (!atracao) {
         return res.status(404).send("No Reviews for this atractions or not found");
     }

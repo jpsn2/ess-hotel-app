@@ -72,5 +72,4 @@ export class UserEvaluationComponent implements OnInit {
     // todas as atracoes com ids
     //this.atracoes = this.listaDeAtracoes.getAllAtracoes();
   }
-
 }

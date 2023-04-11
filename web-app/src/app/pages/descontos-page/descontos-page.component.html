@@ -1,40 +1,12 @@
 <section id="background">
   <div class="background">
-    <div class="containergeral">
-      <div class="card1">
+    <div class="containergeral" >
+      <div class="card1" *ngFor="let discount of discounts.slice(0, 4)">
         <app-hotel-card
-          hotelName="Hotel A"
-          location="New York, NYC"
-          price="$$$"
-          imageUrl="https://via.placeholder.com/600x400.png?text=Hotel+A"
-        >
-        </app-hotel-card>
-      </div>
-
-      <div class="card2">
-        <app-hotel-card
-          hotelName="Hotel B"
-          location="Los Angeles, CA"
-          price="$$$"
-          imageUrl="https://via.placeholder.com/600x400.png?text=Hotel+B"
-        >
-        </app-hotel-card>
-      </div>
-      <div class="card2">
-        <app-hotel-card
-          hotelName="Hotel B"
-          location="Los Angeles, CA"
-          price="$$$"
-          imageUrl="https://via.placeholder.com/600x400.png?text=Hotel+B"
-        >
-        </app-hotel-card>
-      </div>
-      <div class="card1">
-        <app-hotel-card
-          hotelName="Hotel A"
-          location="New York, NYC"
-          price="$$$"
-          imageUrl="https://via.placeholder.com/600x400.png?text=Hotel+B"
+        hotelName="{{discount.titulo}}"
+        location="{{discount.text}}"
+        price="{{discount.price}}"
+        imageUrl="{{discount.imageUrl}}"
         >
         </app-hotel-card>
       </div>
