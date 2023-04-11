@@ -1,25 +1,31 @@
-scenario: escolher primeira oferta da lista 
-    Given eu estou na página "visualizar descontos"
-    and vejo as opções em "Descontos no precinho"
-    when seleciono o primeiro desconto da lista "Descontos no precinho"
-    then eu sou redirecionado para "página da atração" daquele desconto
 
-scenario: escolher oferta relâmpago
-    Given eu estou na página "visualizar descontos"
-    and vejo as opções em "Ofertas relâmpago"
-    when seleciono o desconto escrito "Oferta Relâmpago"
-    then eu sou redirecionado para "página da atração" da "Oferta Relâmpago"
+Scenario: Escolher primeira oferta da lista
+Given eu estou na página "descontos'
+and vejo as opções de atrações com desconto
+and desejo comprar uma das atrações ofertadas
+when eu clico no botão 'COMPRAR AGORA"
+then eu sou redirecionado para a página de pagamento
 
-scenario: ordenar ofertas pelo menor preço
-    Given eu estou na página "visualizar descontos"
-    and eu vejo "Ordenar por:" em "Filtrar"
-    when eu seleciono a opção "Duração da promoção" em "ordenar por:"
-    then eu visualizo "Descontos no precinho"
-    and eu vejo Uma lista de descontos pelos menores preços
+Scenario: Ir para a lista de todas as ofertas
+given: Estou na página inicial
+and Eu quero ver todos os descontos
+and eu vejo o botão "Desconto" na barra de navegação no topo da página
+when eu clico no botão "Desconto", sou redirecionádo para a página contendo os descontos
+and eu vejo quatro descontos mas nenhum deles me interessa
+and eu vejo um botão "Ver Mais" no fundo da página
+when eu clico no botão "Ver Mais" sou redirecionado para a página "extendido"
+then eu consigo ver uma lista com todas as ofertas
 
-Scenario: Não possui promoção desejada 
-    Given Estou na página "descontos"
-    When Seleciono a data "18/05"
-    And Não existem descontos no dia "Disponível em:"
-    Then Nenhuma oferta foi exibida
-    And Preciso escolher outra data
+
+Scenario: Comprar uma oferta que não está sendo exibida na primeira página
+given: Estou na página inicial
+and Eu quero ver todos os descontos
+and eu vejo o botão "Desconto" na barra de navegação no topo da página
+when eu clico no botão "Desconto", sou redirecionádo para a página contendo os descontos
+and eu vejo quatro descontos mas nenhum deles me interessa
+and eu vejo um botão "Ver Mais" no fundo da página
+when eu clico no botão "Ver Mais" sou redirecionado para a página "extendido"
+then eu consigo ver uma lista com todas as ofertas
+and desejo comprar uma das atrações ofertadas
+when eu clico no botão 'COMPRAR AGORA"
+then eu sou redirecionado para a página de pagamento
