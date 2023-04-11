@@ -3,6 +3,8 @@ import { User_review, date } from '../../../../../server/src/models/reviews';
 import { Component, OnInit } from '@angular/core';
 import { defineComponents, IgcRatingComponent } from 'igniteui-webcomponents';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Atracao } from '../../../../../server/src/models/atracao';
+import { ListaAtracoesPageComponent } from 'src/app/pages/lista-atracoes-page/lista-atracoes-page.component';
 
 
 defineComponents(IgcRatingComponent);
@@ -13,6 +15,22 @@ defineComponents(IgcRatingComponent);
   styleUrls: ['./user-evaluation.component.scss','./user-make-review.component.scss']
 })
 export class UserEvaluationComponent implements OnInit {
+
+  constructor(
+    //private listaDeAtracoes : ListaAtracoesPageComponent,
+    private ueService : UserEvaluationService,
+    private fb: FormBuilder
+    ) {
+      this.evaluationForm = this.fb.group({
+        overallR: ['', Validators.required],
+        cleanR: ['', Validators.required],
+        securityR: ['', Validators.required],
+        funnyR: ['', Validators.required],
+        writtenR: ['', Validators.required]
+      })
+    };
+  
+  //atracoes: Atracao[] = [];
 
   // variaveis para exibir elementos no front end
   createReview: boolean = false;
@@ -36,19 +54,6 @@ export class UserEvaluationComponent implements OnInit {
 
   // metodos da classe 
 
-  constructor(
-    private ueService : UserEvaluationService,
-    private fb: FormBuilder
-    ) {
-      this.evaluationForm = this.fb.group({
-        overallR: ['', Validators.required],
-        cleanR: ['', Validators.required],
-        securityR: ['', Validators.required],
-        funnyR: ['', Validators.required],
-        writtenR: ['', Validators.required]
-      })
-    }
-
   onSubmit() {
     const formData = this.evaluationForm.value;
     this.ueService.addReview(formData).subscribe();
@@ -63,6 +68,9 @@ export class UserEvaluationComponent implements OnInit {
     this.ueService.getData().subscribe((data: any) => {
       this.reviews = data.allReviews;
     });
+
+    // todas as atracoes com ids
+    //this.atracoes = this.listaDeAtracoes.getAllAtracoes();
   }
 
 }

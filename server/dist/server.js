@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const reviews_routes_1 = __importDefault(require("./src/routes/reviews.routes"));
+const atracoes_routes_1 = __importDefault(require("./src/routes/atracoes.routes"));
 //import fs from 'fs';
 const app = (0, express_1.default)();
 const port = 3000;
@@ -19,6 +20,7 @@ app.use(express_1.default.json());
 // example of componenet routers app.use('component', componentRouter);
 // link das rotas pro backend
 app.use('/reviews', reviews_routes_1.default);
+app.use('/atracoes', atracoes_routes_1.default);
 app.get('/', (req, res, next) => {
     res.send('Express + TypeScript Server');
 });

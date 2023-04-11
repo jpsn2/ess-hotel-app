@@ -105,7 +105,7 @@
 
                     <div class="overall-rating rating">
                         <h3>Avaliação geral : </h3>
-                        <igc-rating name="ratingValue" [value]="ratingValue" min="1" max="5" hover-preview formControlName="overallR"></igc-rating>
+                        <igc-rating name="ratingValue" [(ngModel)]="ratingValue" min="1" max="5" hover-preview formControlName="overallR"></igc-rating>
                     </div>
 
 
@@ -116,17 +116,17 @@
 
                     <div class="limpeza-rating rating">
                         <h3>Limpeza : </h3>
-                        <igc-rating [value]="ratingCleanValue" min="1" max="5" hover-preview formControlName="cleanR"></igc-rating>
+                        <igc-rating [(ngModel)]="ratingCleanValue" min="1" max="5" hover-preview formControlName="cleanR"></igc-rating>
                     </div>
 
                     <div class="security-rating rating">
                         <h3>Segurança : </h3>
-                        <igc-rating [value]="ratingSecurityValue" min="1" max="5" hover-preview formControlName="securityR"></igc-rating>
+                        <igc-rating [(ngModel)]="ratingSecurityValue" min="1" max="5" hover-preview formControlName="securityR"></igc-rating>
                     </div>
 
                     <div class="funny-rating rating">
                         <h3>Diversão : </h3>
-                        <igc-rating [value]="ratingFunnyValue" min="1" max="5" hover-preview formControlName="funnyR"></igc-rating>
+                        <igc-rating [(ngModel)]="ratingFunnyValue" min="1" max="5" hover-preview formControlName="funnyR"></igc-rating>
                     </div>
 
 

@@ -10,13 +10,13 @@ reviews.route('/')
     .get((req: Request, res: Response) => { 
         // rota para enviar todas as reviews disponiveis, creio que nao sera necessario
         let allReviews = reviewsController.getAllReviews();
-        return res.send({ allReviews })
+        return res.send({ allReviews });
     })
 
 reviews.route('/:id')
     .get((req: Request, res: Response) => { 
         // rota que retorna todas reviews de uma atracao especifica selecionada por id
-        let id = Number(req.params.id)
+        let id = Number(req.params.id);
 
         let atractionReviews = reviewsController.getAtractionReview(id);
 

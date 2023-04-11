@@ -22,6 +22,8 @@ import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { HttpClientModule } from '@angular/common/http'; 
 // adição do httpClientModule para fazer requisicao de info do back end
 import { PagamentosPageComponent } from './pages/pagamentos-page/pagamentos-page.component';
+
+
 @NgModule({
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   declarations: [

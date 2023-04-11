@@ -1,6 +1,8 @@
+import { AtracaoPageService } from './atracao-page.service';
 import { Component, OnInit } from '@angular/core';
-import { Atracao } from './atracao';
+import { Atracao } from '../../../../../server/src/models/atracao';
 import { ActivatedRoute } from '@angular/router';
+//import { ListaAtracoesPageComponent } from '../lista-atracoes-page/lista-atracoes-page.component';
 
 @Component({
   selector: 'app-atracao-page',
@@ -8,15 +10,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./atracao-page.component.scss'],
 })
 export class AtracaoPageComponent implements OnInit {
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    //private listaDeAtracoes: ListaAtracoesPageComponent,
+    private route: ActivatedRoute,
+    private atracaoService: AtracaoPageService
+    ) {}
 
-  ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
-      let id = params.get('atracaoId');
-      console.log(id);
-    });
-  }
+  id : string = '';
 
+  
   currentAtracao: Atracao = {
     id: '11a24b90',
     name: 'Passeio de 1 dia com almoço em Angra dos Reis',
@@ -39,6 +41,31 @@ export class AtracaoPageComponent implements OnInit {
     hour: 'Início: 07:00',
     ticketPrice: 202.33,
   };
+
+  //currentAtracao!: Atracao;
+
+  async ngOnInit(): Promise<any> {
+    let check;
+    let currentAtracao;
+
+    this.route.paramMap.subscribe((params) => {
+
+      check = params.get('atracaoId');
+      if (check != null){
+        this.id = check;
+      }
+      console.log(this.id);
+    });
+
+    this.atracaoService.getAtracao(this.id).subscribe((data:any) => {
+      console.log('alo');
+      currentAtracao = data;
+      console.log(currentAtracao);
+      this.currentAtracao = currentAtracao;
+      
+    })
+  };
+//this.listaDeAtracoes.getAtracaoByID(this.id);
 
   tickets: number = 0;
 
