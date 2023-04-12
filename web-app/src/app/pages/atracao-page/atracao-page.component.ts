@@ -1,5 +1,5 @@
 import { AtracaoPageService } from './atracao-page.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Atracao } from '../../../../../server/src/models/atracao';
 import { ActivatedRoute } from '@angular/router';
 //import { ListaAtracoesPageComponent } from '../lista-atracoes-page/lista-atracoes-page.component';
@@ -54,18 +54,19 @@ export class AtracaoPageComponent implements OnInit {
       if (check != null){
         this.id = check;
       }
-      console.log(this.id);
+      //console.log(this.id);
     });
 
     this.atracaoService.getAtracao(this.id).subscribe((data:any) => {
-      console.log('alo');
+      //console.log('alo');
       currentAtracao = data;
-      console.log(currentAtracao);
+      //console.log(currentAtracao);
       this.currentAtracao = currentAtracao;
       
     })
   };
-//this.listaDeAtracoes.getAtracaoByID(this.id);
+
+  @Input() atracaoId: string = '';
 
   tickets: number = 0;
 
