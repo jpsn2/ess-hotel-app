@@ -84,7 +84,9 @@
                 <p>Total</p>
                 <h1>R$ {{ totalPrice }}</h1>
               </div>
-              <button (click)="buyTickets()">Comprar</button>
+              <button routerLink="/pagamento" (click)="buyTickets()">
+                Comprar
+              </button>
             </div>
           </div>
         </div>
