@@ -32,8 +32,10 @@ reviews.route('/:id')
         let country: string = req.body.country
         let comment: string = req.body.comment
         let data: date = req.body.date
+        let id: string = req.body.revid
+        let like: boolean = req.body.like
 
-        reviewsController.addReview(nome, country, comment, data);
+        reviewsController.addReview(nome, country, comment, data,like, id);
         let allReviews = reviewsController.getAllReviews();
         return res.json(allReviews);
     })

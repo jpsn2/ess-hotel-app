@@ -3,7 +3,7 @@
     <section id="reviews-page">
       <button class="close-reviews-button" (click)="closeDrawbar()">X</button>
 
-      <app-user-evaluation></app-user-evaluation>
+      <app-user-evaluation [atracaoId]="[id]"></app-user-evaluation>
     </section>
   </div>
 
@@ -84,7 +84,9 @@
                 <p>Total</p>
                 <h1>R$ {{ totalPrice }}</h1>
               </div>
-              <button (click)="buyTickets()">Comprar</button>
+              <button routerLink="/pagamento" (click)="buyTickets()">
+                Comprar
+              </button>
             </div>
           </div>
         </div>

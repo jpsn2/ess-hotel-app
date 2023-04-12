@@ -9,7 +9,7 @@
                 <div class="atraction-rating">
                     <img src="../../../assets/images/Gold_Star.svg" alt="Estrela" class="star">
 
-                    <p>4.7 / 5 (33 reviews)</p>
+                    <p>{{mediaEval}} / 5 ({{numEval}} reviews)</p>
                 </div>
             </div>
 
@@ -95,40 +95,22 @@
                     </div>
 
                     <div class="user-information">
-                        <p class="user-name">José</p>
-                        <p class="user-country">Brasil</p>
+                        <p class="user-name">{{nomeUsuario}}</p>
+                        <p class="user-country">{{nacionalidadeUser}}</p>
                     </div>
                 </div>
-
-
                 <form [formGroup]="evaluationForm" (ngSubmit)="onSubmit" class="evaluation-form">
 
                     <div class="overall-rating rating">
-                        <h3>Avaliação geral : </h3>
-                        <igc-rating name="ratingValue" [(ngModel)]="ratingValue" min="1" max="5" hover-preview formControlName="overallR"></igc-rating>
+                        <h3>Gostou ? </h3>
+                        <button class="likeDislikeButtons" [(ngModel)]="gostou" type="button" value="true">SIM</button>
+                        <button class="likeDislikeButtons" [(ngModel)]="gostou" type="button" value="false">NÃO</button>
                     </div>
-
 
                     <textarea name="avaliacao_escrita" id="written-evaluation" cols="50" rows="4" maxlength="100"
                         placeholder="Descreva sua experiência (opcional)" 
                         formControlName="writtenR"
                         ></textarea>
-
-                    <div class="limpeza-rating rating">
-                        <h3>Limpeza : </h3>
-                        <igc-rating [(ngModel)]="ratingCleanValue" min="1" max="5" hover-preview formControlName="cleanR"></igc-rating>
-                    </div>
-
-                    <div class="security-rating rating">
-                        <h3>Segurança : </h3>
-                        <igc-rating [(ngModel)]="ratingSecurityValue" min="1" max="5" hover-preview formControlName="securityR"></igc-rating>
-                    </div>
-
-                    <div class="funny-rating rating">
-                        <h3>Diversão : </h3>
-                        <igc-rating [(ngModel)]="ratingFunnyValue" min="1" max="5" hover-preview formControlName="funnyR"></igc-rating>
-                    </div>
-
 
                     <button type="submit">Postar</button>
                 </form>

@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class PagamentosPageComponent {
 isCard:boolean = true;
 
+totalPagamento: number = 189.99;
+
 getCard():void {
   this.isCard=true;
 }
