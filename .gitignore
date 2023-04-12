@@ -1,5 +1,6 @@
 typeScript/
 node_modules/
+dist/
 
 # IDEs and editors
 /.idea
