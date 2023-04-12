@@ -13,14 +13,18 @@ discount.route('/')
 discount.route('/:id')
     .get(function (req, res) {
     // rota que retorna o valor de um desconto específico, selecionada por id
-    var id = Number(req.params.id);
+    var id = req.params.id.toString();
+    var discount = discountController.getpricebyid(id);
+    return res.send(discount);
 }).post(function (req, res) {
     // rota para criar novos descontos
+    var id = req.body.id;
     var titulo = req.body.titulo;
     var text = req.body.text;
     var price = req.body.price;
+    var realprice = req.body.realprice;
     var imageUrl = req.body.imageUrl;
-    discountController.addDiscount(titulo, text, price, imageUrl);
+    discountController.addDiscount(id, titulo, text, price, realprice, imageUrl);
     var alldiscounts = discountController.getALLDiscounts();
     return res.json(alldiscounts);
 });
